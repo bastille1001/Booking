@@ -24,9 +24,11 @@ public class FlightDaoServices {
         availableFlight = (ArrayList<Flight>) flightDAO.getAll().stream()
                 .filter(flight -> flight.getDestinationCity().equals(cities))
                 .filter(flight -> flight.getNumberOfFreeSeats() >= freeSeats)
-                .filter(flight -> date.getTime() - flight.getStartingDate() >= DateConverter.hour(12))
+//                .filter(flight -> date.getTime() - flight.getStartingDate() >= DateConverter.hour(12))
+                .collect(Collectors.toList());/*
                 .filter(flight -> date.getTime() - flight.getStartingDate() < DateConverter.hour(12))
                 .collect(Collectors.toList());
+                */
         return availableFlight;
     }
 

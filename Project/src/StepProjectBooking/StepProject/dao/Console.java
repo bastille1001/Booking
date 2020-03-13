@@ -37,25 +37,25 @@ public class Console {
     }
 
     public void searchAndBook() throws IOException, ClassNotFoundException, ParseException {
-        String city, data;
+        String city;
+        StringBuilder data;
         long date;
         int people, userSelection;
 
         printer("Please enter destination city : ");
         city = scan.next();
         printer("Please enter date\n");
-        data = "";
+        data = new StringBuilder();
         printer("Enter 'Time' in format HH:mm : ");
-        data += scan.next();
-        data += " ";
+        data.append(scan.next()).append(" ");
         printer("Enter 'Date' in format dd/MM/yyyy : ");
-        data += scan.next();
-        date = DateConverter.stringToMills(data);
+        data.append(scan.next());
+        date = DateConverter.stringToMills(data.toString());
         if (date == 0) {
             printer("Wrong date input. Please enter date cin correct format. \n");
             return;
         }
-        printer("Please how many people will travel : ");
+        printer("How many people will travel: ");
         try {
             people = scan.nextInt();
             ArrayList<Flight> cFlight = fc.getAvailableFlight(city, people, new Date(date));
@@ -66,11 +66,10 @@ public class Console {
             if (cFlight.stream().noneMatch(item -> item.getId()
                     == userSelection) || userSelection < 0) {
                 System.out.println("Wrong flight id");
-                return;
             } else if (userSelection == 0)
                 return;
             else {
-                for (int a = 0; a < people; a++) {
+                for (int i = 0; i < people; i++) {
                     printer("Enter name of passenger : \n");
                     String name = scan.next();
                     printer("Enter surname of passenger : \n");
