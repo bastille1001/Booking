@@ -1,5 +1,6 @@
 package StepProjectBooking.StepProject.flights;
-import StepProjectBooking.StepProject.booking.Client;
+import StepProjectBooking.StepProject.Converter.DateConverter;
+import StepProjectBooking.StepProject.booking.Booking;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -8,7 +9,7 @@ import java.util.HashMap;
 public class FlightRandomGenerator {
     private int id;
     private int numberOfSeats;
-    private HashMap<Integer, Client> seats;
+    private HashMap<Integer, Booking> seats;
     private String startingDate;
     private String destinationDate;
     private String startingCity;
@@ -25,7 +26,7 @@ public class FlightRandomGenerator {
     }
 
     private FlightRandomGenerator withSeats() {
-        seats = new HashMap<Integer, Client>(numberOfSeats);
+        seats = new HashMap<Integer, Booking>(numberOfSeats);
         return this;
     }
 

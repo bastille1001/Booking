@@ -1,5 +1,5 @@
 package StepProjectBooking.StepProject.flights;
-import StepProjectBooking.StepProject.dao.FlightDaoController;
+import StepProjectBooking.StepProject.dao.Controllers.FlightController;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ public class DataFlight {
 
     private String path = "base.bin";
 
-    public DataFlight(FlightDaoController controller) throws IOException, ClassNotFoundException {
+    public DataFlight(FlightController controller) throws IOException, ClassNotFoundException {
         File base = new File(path);
         try {
             FileOutputStream fos = new FileOutputStream(base);

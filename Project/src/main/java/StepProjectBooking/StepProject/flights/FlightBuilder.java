@@ -1,6 +1,6 @@
 package StepProjectBooking.StepProject.flights;
 
-import StepProjectBooking.StepProject.booking.Client;
+import StepProjectBooking.StepProject.booking.Booking;
 
 import java.text.ParseException;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class FlightBuilder {
     private int id;
     private int numberOfSeats;
-    private HashMap<Integer, Client> seats;
+    private HashMap<Integer, Booking> seats;
     private String startingDate;
     private String destinationDate;
     private String startingCity;
@@ -24,7 +24,7 @@ public class FlightBuilder {
         return this;
     }
 
-    public FlightBuilder withSeats(HashMap<Integer, Client> seatsMap) {
+    public FlightBuilder withSeats(HashMap<Integer, Booking> seatsMap) {
         seats = seatsMap;
         return this;
     }

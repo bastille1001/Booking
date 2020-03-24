@@ -1,5 +1,6 @@
-package StepProjectBooking.StepProject.dao;
-import StepProjectBooking.StepProject.booking.Client;
+package StepProjectBooking.StepProject.dao.Controllers;
+import StepProjectBooking.StepProject.booking.Booking;
+import StepProjectBooking.StepProject.dao.Services.FlightServices;
 import StepProjectBooking.StepProject.flights.Flight;
 
 import java.io.IOException;
@@ -8,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class FlightDaoController {
+public class FlightController {
 
 
-    public FlightDaoServices flightDaoServices = new FlightDaoServices();
+    public FlightServices flightDaoServices = new FlightServices();
 
     public ArrayList<Flight> getAllFlight() throws IOException, ClassNotFoundException {
         return flightDaoServices.getAllFlight();
@@ -21,15 +22,15 @@ public class FlightDaoController {
         return flightDaoServices.getAvailableFlight(cities,freeSeats,date);
     }
 
-    public void addClient(Client client, int flightId) throws IOException, ClassNotFoundException {
+    public void addClient(Booking client, int flightId) throws IOException, ClassNotFoundException {
         flightDaoServices.addClient(client,flightId);
     }
 
-    public void removeClient(Client client, int flightId) throws IOException, ClassNotFoundException {
+    public void removeClient(Booking client, int flightId) throws IOException, ClassNotFoundException {
         flightDaoServices.removeClient(client,flightId);
     }
 
-    public HashMap<Integer, Client> getPassengers(int flightId) throws IOException, ClassNotFoundException {
+    public HashMap<Integer, Booking> getPassengers(int flightId) throws IOException, ClassNotFoundException {
         return flightDaoServices.getPassengers(flightId);
     }
 

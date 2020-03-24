@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class Client implements Serializable {
+public class Booking implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int userId;
@@ -17,7 +17,7 @@ public class Client implements Serializable {
     private List<Flight> myFlights = new ArrayList<>();
     private Random rand = new Random();
 
-    public Client(int userId, String name, String surname) {
+    public Booking(int userId, String name, String surname) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -45,7 +45,7 @@ public class Client implements Serializable {
     public boolean equals(Object that) {
         if (this == that) return true;
         if (that == null || getClass() != that.getClass() || this.hashCode() != that.hashCode()) return false;
-        Client client = (Client) that;
+        Booking client = (Booking) that;
         return userId == client.userId &&
                 Objects.equals(name, client.name) &&
                 Objects.equals(surname, client.surname);

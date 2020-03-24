@@ -1,7 +1,8 @@
 package StepProjectBooking.StepProject.flights;
 
 
-import StepProjectBooking.StepProject.booking.Client;
+import StepProjectBooking.StepProject.Converter.DateConverter;
+import StepProjectBooking.StepProject.booking.Booking;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -18,7 +19,7 @@ public class Flight implements Serializable {
     private int numberOfSeats;
     private int numberOfFreeSeats;
 
-    private HashMap<Integer, Client> seats;
+    private HashMap<Integer, Booking> seats;
 
     private long startingDate;
     private long destinationDate;
@@ -28,7 +29,7 @@ public class Flight implements Serializable {
                   String startingCity, String destinationPoint) throws ParseException {
         this.id = id;
         this.numberOfSeats = numberOfSeats;
-        this.seats = new HashMap<Integer, Client>();
+        this.seats = new HashMap<Integer, Booking>();
         this.startingDate = DateConverter.stringToMills(startingDate);
         this.destinationDate = DateConverter.stringToMills(destinationDate);
         this.startingCity = startingCity;
@@ -44,7 +45,7 @@ public class Flight implements Serializable {
         return numberOfSeats;
     }
 
-    public HashMap<Integer, Client> getSeats() {
+    public HashMap<Integer, Booking> getSeats() {
         return seats;
     }
 

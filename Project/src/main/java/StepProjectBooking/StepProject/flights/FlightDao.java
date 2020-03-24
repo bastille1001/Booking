@@ -1,10 +1,10 @@
-package StepProjectBooking.StepProject.dao;
+package StepProjectBooking.StepProject.flights;
 
-import StepProjectBooking.StepProject.flights.Flight;
+import StepProjectBooking.StepProject.dao.Interface.DAO;
 
 import java.util.ArrayList;
 
-public class FlightDaoStorage implements DAO<Flight> {
+public class FlightDao implements DAO<Flight> {
 
     private ArrayList<Flight> flightList = new ArrayList<>();
 

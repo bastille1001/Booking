@@ -1,6 +1,6 @@
 package StepProjectBooking.StepProject;
 
-import StepProjectBooking.StepProject.dao.Console;
+import StepProjectBooking.StepProject.Console.Console;
 
 import java.io.IOException;
 import java.text.ParseException;

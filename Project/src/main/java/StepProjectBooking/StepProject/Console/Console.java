@@ -1,8 +1,9 @@
-package StepProjectBooking.StepProject.dao;
+package StepProjectBooking.StepProject.Console;
 
-import StepProjectBooking.StepProject.booking.Client;
+import StepProjectBooking.StepProject.booking.Booking;
+import StepProjectBooking.StepProject.dao.Controllers.BookingController;
+import StepProjectBooking.StepProject.dao.Controllers.FlightController;
 import StepProjectBooking.StepProject.flights.DataFlight;
-import StepProjectBooking.StepProject.flights.DateConverter;
 import StepProjectBooking.StepProject.flights.Flight;
 
 import java.io.IOException;
@@ -11,8 +12,8 @@ import java.util.*;
 
 public class Console {
 
-    private FlightDaoController fc = new FlightDaoController();
-    private BookingDaoController bc = new BookingDaoController();
+    private FlightController fc = new FlightController();
+    private BookingController bc = new BookingController();
     private Scanner scan = new Scanner(System.in);
     private DataFlight df = new DataFlight();
     private ArrayList<Flight> flights;
@@ -44,21 +45,10 @@ public class Console {
 
         printer("Please enter destination city : ");
         city = scan.next();
-        printer("Please enter date\n");
-        data = new StringBuilder();
-        printer("Enter 'Time' in format HH:mm : ");
-        data.append(scan.next()).append(" ");
-        printer("Enter 'Date' in format dd/MM/yyyy : ");
-        data.append(scan.next());
-        date = DateConverter.stringToMills(data.toString());
-        if (date == 0) {
-            printer("Wrong date input. Please enter date cin correct format. \n");
-            return;
-        }
         printer("How many people will travel: ");
         try {
             people = scan.nextInt();
-            ArrayList<Flight> cFlight = fc.getAvailableFlight(city, people, new Date(date));
+            ArrayList<Flight> cFlight = fc.getAvailableFlight(city, people, new Date());
             System.out.println("\nMost similar results :");
             printer(cFlight.toString() + "\n");
             printer("Select any available flights above : ");
@@ -70,13 +60,13 @@ public class Console {
                 return;
             else {
                 for (int i = 0; i < people; i++) {
-                    printer("Enter name of passenger : \n");
+                    printer("Enter name of passenger : ");
                     String name = scan.next();
                     printer("Enter surname of passenger : \n");
                     String surname = scan.next();
                     printer("Enter user ID of passenger : \n");
                     int userId = scan.nextInt();
-                    Client client = new Client(userId, name, surname);
+                    Booking client = new Booking(userId, name, surname);
                     fc.addClient(client,userSelection);
                     bc.addToDataBase(client);
                 }
@@ -127,7 +117,7 @@ public class Console {
         printer("Enter surname of passenger : \n");
         String surname = scan.next();
         for (Flight f : fc.getAllFlight()) {
-            for (Client c : f.getSeats().values()) {
+            for (Booking c : f.getSeats().values()) {
                 if (c.getName().equals(name) && c.getSurname().equals(surname))
                     c.getMyFlights().forEach(item -> printer(item.toString()));
             }

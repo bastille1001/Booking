@@ -1,17 +1,17 @@
-package StepProjectBooking.StepProject.dao;
+package StepProjectBooking.StepProject.booking;
 
-import StepProjectBooking.StepProject.booking.Client;
+import StepProjectBooking.StepProject.dao.Interface.DAO;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-public class BookingDaoStorage implements DAO<Client> {
+public class BookingDao implements DAO<Booking> {
 
-    private ArrayList<Client> allClients = new ArrayList<>();
+    private ArrayList<Booking> allClients = new ArrayList<>();
     private FileWriter writer;
     @Override
-    public Client get(int Id) {
-        for (Client client: allClients) {
+    public Booking get(int Id) {
+        for (Booking client: allClients) {
             if (client.getUserId() == Id)
                 return client;
         }
@@ -19,17 +19,17 @@ public class BookingDaoStorage implements DAO<Client> {
     }
 
     @Override
-    public ArrayList<Client> getAll() {
+    public ArrayList<Booking> getAll() {
         return allClients;
     }
 
     @Override
-    public void save(Client data) {
+    public void save(Booking data) {
         allClients.add(data);
     }
 
     @Override
-    public void update(Client client) {
+    public void update(Booking client) {
         allClients.set(allClients.indexOf(client),client);
     }
 
@@ -45,7 +45,7 @@ public class BookingDaoStorage implements DAO<Client> {
     }
 
     @Override
-    public void deleteByObject(Client client) {
+    public void deleteByObject(Booking client) {
         try {
             allClients.forEach(client1 -> {
                 if (client.equals(client));
