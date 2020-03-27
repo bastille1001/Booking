@@ -1,7 +1,8 @@
-package StepProjectBooking.StepProject.dao.Interface;
+package StepProjectBooking.StepProject.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public interface DAO<D> {
     D get(int Id) throws IOException, ClassNotFoundException;

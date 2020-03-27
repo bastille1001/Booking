@@ -1,6 +1,4 @@
-package StepProjectBooking.StepProject.booking;
-
-import StepProjectBooking.StepProject.flights.Flight;
+package StepProjectBooking.StepProject.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,10 +10,13 @@ public class Booking implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int userId;
+    private int flightId;
     private String name;
     private String surname;
     private List<Flight> myFlights = new ArrayList<>();
     private Random rand = new Random();
+
+    public Booking(){}
 
     public Booking(int userId, String name, String surname) {
         this.userId = userId;
@@ -28,6 +29,8 @@ public class Booking implements Serializable {
     public String getName(){return name;}
 
     public String getSurname(){return surname;}
+
+    public int getFlightId(){ return flightId; }
 
     public int getUserId(){return userId;}
 

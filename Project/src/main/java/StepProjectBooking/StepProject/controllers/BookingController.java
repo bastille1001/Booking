@@ -1,15 +1,16 @@
-package StepProjectBooking.StepProject.dao.Controllers;
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.dao.Services.BookingServices;
-import StepProjectBooking.StepProject.flights.Flight;
+package StepProjectBooking.StepProject.controllers;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.services.BookingServices;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.io.IOException;
 
 public class BookingController {
+
     public BookingServices bookingDaoServices = new BookingServices();
 
-    public boolean cancelBooking(Booking client, int flightId){
-        return bookingDaoServices.cancelBooking(client,flightId);
+    public void cancelBooking(Booking client, int flightId){
+        bookingDaoServices.cancelBooking(client, flightId);
     }
 
     public void addToDataBase(Booking client) throws IOException, ClassNotFoundException {

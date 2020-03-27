@@ -1,8 +1,7 @@
-package StepProjectBooking.StepProject.flights;
+package StepProjectBooking.StepProject.domain;
 
 
-import StepProjectBooking.StepProject.Converter.DateConverter;
-import StepProjectBooking.StepProject.booking.Booking;
+import StepProjectBooking.StepProject.converter.DateConverter;
 
 import java.io.Serializable;
 import java.text.ParseException;

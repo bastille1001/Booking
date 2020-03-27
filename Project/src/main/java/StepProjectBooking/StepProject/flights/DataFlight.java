@@ -1,5 +1,6 @@
 package StepProjectBooking.StepProject.flights;
-import StepProjectBooking.StepProject.dao.Controllers.FlightController;
+import StepProjectBooking.StepProject.controllers.FlightController;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.io.*;
 import java.util.ArrayList;

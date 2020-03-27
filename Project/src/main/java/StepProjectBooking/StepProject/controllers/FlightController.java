@@ -1,7 +1,7 @@
-package StepProjectBooking.StepProject.dao.Controllers;
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.dao.Services.FlightServices;
-import StepProjectBooking.StepProject.flights.Flight;
+package StepProjectBooking.StepProject.controllers;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.services.FlightServices;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.io.IOException;
 import java.text.ParseException;

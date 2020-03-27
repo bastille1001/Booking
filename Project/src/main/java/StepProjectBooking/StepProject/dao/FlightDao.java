@@ -1,6 +1,6 @@
-package StepProjectBooking.StepProject.flights;
+package StepProjectBooking.StepProject.dao;
 
-import StepProjectBooking.StepProject.dao.Interface.DAO;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.util.ArrayList;
 

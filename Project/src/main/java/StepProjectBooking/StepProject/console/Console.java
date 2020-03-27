@@ -1,10 +1,10 @@
-package StepProjectBooking.StepProject.Console;
+package StepProjectBooking.StepProject.console;
 
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.dao.Controllers.BookingController;
-import StepProjectBooking.StepProject.dao.Controllers.FlightController;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.controllers.BookingController;
+import StepProjectBooking.StepProject.controllers.FlightController;
 import StepProjectBooking.StepProject.flights.DataFlight;
-import StepProjectBooking.StepProject.flights.Flight;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -39,8 +39,6 @@ public class Console {
 
     public void searchAndBook() throws IOException, ClassNotFoundException, ParseException {
         String city;
-        StringBuilder data;
-        long date;
         int people, userSelection;
 
         printer("Please enter destination city : ");

@@ -1,9 +1,9 @@
-package StepProjectBooking.StepProject.dao.Services;
+package StepProjectBooking.StepProject.services;
 
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.dao.Interface.DAO;
-import StepProjectBooking.StepProject.flights.FlightDao;
-import StepProjectBooking.StepProject.flights.Flight;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.dao.DAO;
+import StepProjectBooking.StepProject.dao.FlightDao;
+import StepProjectBooking.StepProject.domain.Flight;
 import StepProjectBooking.StepProject.flights.FlightRandomGenerator;
 
 import java.io.IOException;
@@ -25,11 +25,7 @@ public class FlightServices {
         availableFlight = (ArrayList<Flight>) flightDAO.getAll().stream()
                 .filter(flight -> flight.getDestinationCity().equals(cities))
                 .filter(flight -> flight.getNumberOfFreeSeats() >= freeSeats)
-//                .filter(flight -> date.getTime() - flight.getStartingDate() >= DateConverter.hour(12))
-                .collect(Collectors.toList());/*
-                .filter(flight -> date.getTime() - flight.getStartingDate() < DateConverter.hour(12))
                 .collect(Collectors.toList());
-                */
         return availableFlight;
     }
 

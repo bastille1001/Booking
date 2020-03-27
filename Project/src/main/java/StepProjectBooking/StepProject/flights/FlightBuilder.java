@@ -1,6 +1,7 @@
 package StepProjectBooking.StepProject.flights;
 
-import StepProjectBooking.StepProject.booking.Booking;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.text.ParseException;
 import java.util.HashMap;

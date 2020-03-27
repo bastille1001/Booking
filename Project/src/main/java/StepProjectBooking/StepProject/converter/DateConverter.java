@@ -1,4 +1,4 @@
-package StepProjectBooking.StepProject.Converter;
+package StepProjectBooking.StepProject.converter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,9 +1,11 @@
-package StepProjectBooking.StepProject.booking;
+package StepProjectBooking.StepProject.dao;
 
-import StepProjectBooking.StepProject.dao.Interface.DAO;
+import StepProjectBooking.StepProject.domain.Booking;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class BookingDao implements DAO<Booking> {
 

@@ -1,17 +1,21 @@
-package StepProjectBooking.StepProject.dao.Services;
+package StepProjectBooking.StepProject.services;
 
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.booking.BookingDao;
-import StepProjectBooking.StepProject.dao.Interface.DAO;
-import StepProjectBooking.StepProject.flights.Flight;
+import StepProjectBooking.StepProject.controllers.FlightController;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.dao.BookingDao;
+import StepProjectBooking.StepProject.dao.DAO;
+import StepProjectBooking.StepProject.domain.Flight;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class BookingServices {
+
     public DAO<Booking> service = new BookingDao();
+
     private File file = new File("./clientsData.txt");
+    private FlightController fc = new FlightController();
 
     public boolean cancelBooking(Booking client, int flightId){
         for (Flight flight: client.getMyFlights()) {
@@ -35,12 +39,24 @@ public class BookingServices {
     }
 
     public void myFlights(String name, String surname) throws IOException, ClassNotFoundException {
-        for (Booking client : service.getAll()) {
-            if (client.getName().equals(name) && client.getSurname().equals(surname)) {
-                System.out.print("Your flights: ");
-                System.out.print(client.getMyFlights());
+        for (Flight f : fc.getAllFlight()) {
+            for (Booking c : f.getSeats().values()) {
+                if (c.getName().equals(name) && c.getSurname().equals(surname))
+                    c.getMyFlights().forEach(item -> printer(item.toString()));
             }
         }
+
+
+//        for (Booking client : service.getAll()) {
+//            if (client.getName().equals(name) && client.getSurname().equals(surname)) {
+//                System.out.print("Your flights: ");
+//                System.out.print(client.getMyFlights().toString());
+//            }
+//        }
+    }
+
+    private void printer(String message) {
+        System.out.print(message);
     }
 
     public void addFlight(Booking client, Flight flight) throws IOException, ClassNotFoundException {

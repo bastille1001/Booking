@@ -1,6 +1,6 @@
-import StepProjectBooking.StepProject.booking.Booking;
-import StepProjectBooking.StepProject.dao.Services.BookingServices;
-import StepProjectBooking.StepProject.flights.Flight;
+import StepProjectBooking.StepProject.domain.Booking;
+import StepProjectBooking.StepProject.services.BookingServices;
+import StepProjectBooking.StepProject.domain.Flight;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
