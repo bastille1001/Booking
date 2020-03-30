@@ -108,18 +108,19 @@ public class SecConsole {
                 String name = scanner.next();
                 System.out.println("Enter your surname");
                 String surname = scanner.next();
+                System.out.println("Enter user id:");
+                int userId = scanner.nextInt();
                 System.out.println("Enter flight id:");
-                int flightId = scanner.nextInt();
-
-                Booking client = new Booking(flightId,name,surname);
-                bookingController.cancelBooking(client,flightId);
+                userSelection = scanner.nextInt();
+                Booking client = new Booking(userId, name, surname);
+                flightController.addClient(client,userSelection);
+                bookingController.cancelBooking(client,userSelection);
                 break;
             case 5:
                 System.out.println("Enter your name:");
                 name = scanner.next();
                 System.out.println("Enter your surname");
                 surname = scanner.next();
-
                 bookingController.myFlights(name,surname);
                 break;
             case 6:

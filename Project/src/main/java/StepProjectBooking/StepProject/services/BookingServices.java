@@ -39,24 +39,12 @@ public class BookingServices {
     }
 
     public void myFlights(String name, String surname) throws IOException, ClassNotFoundException {
-        for (Flight f : fc.getAllFlight()) {
-            for (Booking c : f.getSeats().values()) {
-                if (c.getName().equals(name) && c.getSurname().equals(surname))
-                    c.getMyFlights().forEach(item -> printer(item.toString()));
+        for (Booking client : service.getAll()) {
+            if (client.getName().equals(name) && client.getSurname().equals(surname)) {
+                System.out.print("Your flights: ");
+                System.out.print(client.getMyFlights().toString());
             }
         }
-
-
-//        for (Booking client : service.getAll()) {
-//            if (client.getName().equals(name) && client.getSurname().equals(surname)) {
-//                System.out.print("Your flights: ");
-//                System.out.print(client.getMyFlights().toString());
-//            }
-//        }
-    }
-
-    private void printer(String message) {
-        System.out.print(message);
     }
 
     public void addFlight(Booking client, Flight flight) throws IOException, ClassNotFoundException {

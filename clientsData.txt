@@ -1,7 +1,0 @@
-
-Client{userId=1, name='timur', surname='huseynov', myFlights=[Flight Id: 827322
-      Number of seats: 80
-      Available seats: 79
-      Starting city: 'Kiev' Starting date: 18:03 26/03/2020
-      Destination city: 'Paris' Destination date: 21:03 26/03/2020
-]}
