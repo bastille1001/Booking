@@ -21,6 +21,7 @@ public class BookingServices {
         for (Flight flight: client.getMyFlights()) {
             if (flight.getId() == flightId) {
                 client.cancelFlight(flight);
+                System.out.println("Your booking canceled successfully");
                 return true;
             }
         }
@@ -41,8 +42,7 @@ public class BookingServices {
     public void myFlights(String name, String surname) throws IOException, ClassNotFoundException {
         for (Booking client : service.getAll()) {
             if (client.getName().equals(name) && client.getSurname().equals(surname)) {
-                System.out.print("Your flights: ");
-                System.out.print(client.getMyFlights().toString());
+                System.out.printf("Your flights: %s", client.getMyFlights().toString());
             }
         }
     }

@@ -18,6 +18,11 @@ public class Booking implements Serializable {
 
     public Booking(){}
 
+    public Booking(String name, String surname){
+        this.name = name;
+        this.surname = surname;
+    }
+
     public Booking(int userId, String name, String surname) {
         this.userId = userId;
         this.name = name;
